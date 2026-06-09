@@ -32,8 +32,8 @@ export default function Home() {
             <a href="/shop">Shop</a>
           </div>
 
-          <a href="/bookings" className="rounded-full bg-[#241f1b] px-5 py-3 text-sm text-white">
-            View Sandbox
+          <a href="/dashboard" className="rounded-full bg-[#241f1b] px-5 py-3 text-sm text-white">
+            View Dashboard
           </a>
         </div>
       </nav>
@@ -195,6 +195,65 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="portal-preview" className="px-6 py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
+              Client Portal Preview
+            </p>
+            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
+              Courses, resources, calls, and progress in one dashboard.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-black/60">
+              Members can log in, continue lessons, download PDFs, view upcoming calls,
+              access resources, and see the full portal mockup from any device.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="/dashboard" className="rounded-full bg-[#241f1b] px-8 py-4 text-center text-sm text-white">
+                View Dashboard
+              </a>
+              <a href="/courses" className="rounded-full bg-white px-8 py-4 text-center text-sm shadow-sm">
+                See Courses
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] bg-[#241f1b] p-4 text-white shadow-xl">
+            <div className="rounded-[1.5rem] bg-white p-5 text-[#241f1b]">
+              <div className="mb-5 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-[#c9a46d]">
+                    Portal Mockup
+                  </p>
+                  <h3 className="mt-2 font-serif text-3xl">Business Academy</h3>
+                </div>
+                <span className="rounded-full bg-[#f6ebe4] px-3 py-2 text-xs">
+                  45%
+                </span>
+              </div>
+
+              <div className="grid gap-3">
+                {[
+                  ["Courses", "Business lessons and coaching videos"],
+                  ["Resources", "PDFs, templates, and workbooks"],
+                  ["Calls", "Upcoming coaching and on-site visits"],
+                  ["Image Generator", "Coming soon"]
+                ].map(([title, text]) => (
+                  <div key={title} className="rounded-2xl bg-[#fbf8f3] p-4">
+                    <p className="font-medium">{title}</p>
+                    <p className="mt-1 text-sm text-black/50">{text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <a href="/dashboard" className="mt-5 block rounded-full bg-[#241f1b] px-6 py-4 text-center text-sm text-white">
+                Open Portal
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -243,3 +302,4 @@ export default function Home() {
     </main>
   );
 }
+
