@@ -3,6 +3,12 @@
 import { useState } from "react";
 
 const templates = {
+  Restaurant: {
+    service: "Private Dining Reservation",
+    deposit: "$250",
+    portal: "Menu preview + event details",
+    intake: ["Guest count", "Event date", "Dietary notes", "Private room request"],
+  },
   Salon: {
     service: "Balayage Consultation",
     deposit: "$50",
@@ -22,15 +28,15 @@ const templates = {
     intake: ["Skin concern", "Treatment history", "Preferred date", "Medical notes"],
   },
   Coach: {
-    service: "Private Clarity Call",
+    service: "Business Coaching Call",
     deposit: "$150",
-    portal: "Course videos + PDF workbook",
-    intake: ["Main goal", "Current challenge", "Desired outcome", "Coaching focus"],
+    portal: "Business resources + PDF workbook",
+    intake: ["Business type", "Revenue goal", "Current challenge", "Coaching focus"],
   },
 };
 
 export default function Bookings() {
-  const [business, setBusiness] = useState("Salon");
+  const [business, setBusiness] = useState("Restaurant");
   const [step, setStep] = useState(0);
 
   const data = templates[business as keyof typeof templates];
@@ -54,8 +60,8 @@ export default function Bookings() {
             Interactive Booking Sandbox
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
-            Select an industry and let ALMA generate a custom booking flow, intake form,
-            deposit logic, reminders, and portal experience.
+            Select an industry and let ALMA generate a custom booking flow, deposit,
+            intake form, reminders, and portal experience.
           </p>
 
           <div className="mt-10 grid grid-cols-2 gap-3">
