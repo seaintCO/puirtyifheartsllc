@@ -12,7 +12,7 @@ export default function Courses() {
         {courses.map((course) => (
           <div key={course.title} className="rounded-3xl bg-white p-6 shadow-sm">
             <div className="flex aspect-video items-center justify-center rounded-2xl bg-[#f6ebe4]">
-              Video Player Placeholder
+              Lesson Preview Coming Soon
             </div>
             <p className="mt-6 text-sm uppercase tracking-[0.25em] text-[#c9a46d]">{course.module}</p>
             <h2 className="mt-2 font-serif text-3xl">{course.title}</h2>

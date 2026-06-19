@@ -9,7 +9,7 @@ export default function Dashboard() {
       <div className="flex">
         <aside className="hidden min-h-screen w-72 border-r border-black/5 bg-white p-6 md:block">
           <h1 className="font-serif text-3xl">Purity Academy</h1>
-          <p className="mt-2 text-sm text-black/50">Member Portal Demo</p>
+          <p className="mt-2 text-sm text-black/50">Purity OS Beta</p>
 
           <nav className="mt-10 space-y-2">
             {[
@@ -30,7 +30,7 @@ export default function Dashboard() {
           <div className="mb-10 flex items-center justify-between">
             <div>
               <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">Welcome Back</p>
-              <h2 className="font-serif text-4xl">Sarah's Portal</h2>
+              <h2 className="font-serif text-4xl">Business Dashboard</h2>
             </div>
             <Link href="/login" className="rounded-full bg-[#2a2421] px-5 py-3 text-sm text-white">
               Logout
