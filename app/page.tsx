@@ -3,36 +3,86 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [active, setActive] = useState("Restaurant");
-
-  const industries = {
-    Restaurant: ["Reservation flow", "Private event inquiry", "Deposit option", "Guest follow-up"],
-    Salon: ["Service menu", "Stylist calendar", "Deposit flow", "Aftercare portal"],
-    Accountant: ["Tax consult", "Secure intake", "Document upload", "Invoice flow"],
-    "Med Spa": ["Treatment menu", "Consent forms", "Deposit flow", "Follow-up care"],
-    Coach: ["Discovery call", "Application", "Payment", "Course portal"],
-  };
-
-  const products = [
-    ["Purity Hoodie", "$88", "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=900&auto=format&fit=crop"],
-    ["Training Set", "$72", "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=900&auto=format&fit=crop"],
-    ["Wellness Bottle", "$34", "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=900&auto=format&fit=crop"],
+  const fWords = [
+    {
+      word: "Faith",
+      meaning: "Trusting God while still taking disciplined action.",
+      verse: "Hebrews 11:1",
+      apply: "Take one step today toward something you have been praying for.",
+      prayer: "God, strengthen my faith and help me move with wisdom.",
+      declaration: "I walk by faith and not by fear."
+    },
+    {
+      word: "Focus",
+      meaning: "Giving your attention to what God has assigned you to build.",
+      verse: "Proverbs 4:25",
+      apply: "Choose one priority today and remove one distraction.",
+      prayer: "God, help me fix my eyes on what matters.",
+      declaration: "I am focused, disciplined, and clear."
+    },
+    {
+      word: "Favor",
+      meaning: "God opening doors, relationships, and opportunities you could not force.",
+      verse: "Psalm 5:12",
+      apply: "Prepare for the opportunity you have been praying for.",
+      prayer: "God, surround me with favor and guide my steps.",
+      declaration: "I walk in favor and preparation."
+    },
+    {
+      word: "Forgiveness",
+      meaning: "Choosing freedom over bitterness and obedience over offense.",
+      verse: "Ephesians 4:32",
+      apply: "Release one offense you have been carrying.",
+      prayer: "God, help me forgive and move forward with peace.",
+      declaration: "I am free from bitterness."
+    },
+    {
+      word: "Fruitfulness",
+      meaning: "Producing results through obedience, consistency, and stewardship.",
+      verse: "John 15:5",
+      apply: "Review what is producing fruit and what needs pruning.",
+      prayer: "God, make my life fruitful in the right places.",
+      declaration: "My work produces good fruit."
+    },
+    {
+      word: "Fortitude",
+      meaning: "The strength to keep going when the assignment feels heavy.",
+      verse: "Joshua 1:9",
+      apply: "Face one hard thing today with courage.",
+      prayer: "God, give me courage and endurance.",
+      declaration: "I am strong, courageous, and steady."
+    },
+    {
+      word: "Freedom",
+      meaning: "Living unchained from fear, confusion, and old patterns.",
+      verse: "Galatians 5:1",
+      apply: "Identify one pattern you are ready to leave behind.",
+      prayer: "God, lead me into freedom and discipline.",
+      declaration: "I am free and moving forward."
+    }
   ];
 
-  return (
-    <main className="min-h-screen bg-[#fbf8f3] text-[#241f1b]">
-      <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#fbf8f3]/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <a href="/" className="font-serif text-3xl">Purity</a>
+  const [todayWord, setTodayWord] = useState(fWords[new Date().getDay() % fWords.length]);
 
-          <div className="hidden gap-8 text-sm text-black/50 md:flex">
-            <a href="#coaching">Business Coaching</a>
-            <a href="#systems">Systems</a>
+  function generateWord() {
+    const next = fWords[Math.floor(Math.random() * fWords.length)];
+    setTodayWord(next);
+  }
+  return (
+    <main className="min-h-screen marble-bg text-[#1F1C1A]">
+      <nav className="sticky top-0 z-50 border-b border-white/40 bg-[#F4F0EA]/75 backdrop-blur-2xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+          <a href="/" className="font-serif text-3xl tracking-tight">Purity OS</a>
+
+          <div className="hidden gap-8 text-sm text-[#7C6853] md:flex">
+            <a href="#getf">Get TO The F</a>
             <a href="#academy">Academy</a>
+            <a href="#booking">Booking</a>
+            <a href="/events">Events</a>
             <a href="/shop">Shop</a>
           </div>
 
-          <a href="/dashboard" className="rounded-full bg-[#241f1b] px-5 py-3 text-sm text-white">
+          <a href="/dashboard" className="rounded-full bg-[#1F1C1A] px-5 py-3 text-sm text-[#F4F0EA]">
             View Dashboard
           </a>
         </div>
@@ -41,265 +91,199 @@ export default function Home() {
       <section className="px-6 py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
-            <p className="mb-5 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-              Purity Of Heart Business Systems
+            <p className="mb-5 text-sm uppercase tracking-[0.35em] text-[#B29571]">
+              Business Coaching + Systems + Education
             </p>
 
-            <h1 className="font-serif text-5xl leading-[1.05] md:text-7xl">
-              Business coaching, booking systems, and client portals.
+            <h1 className="font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
+              Build a business that runs with clarity.
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-8 text-black/60">
-              Purity Of Heart helps entrepreneurs, service businesses, restaurants,
-              coaches, and wellness brands create better systems, stronger offers,
-              and smoother client experiences powered by ALMA.
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#7C6853]">
+              Purity OS helps founders, operators, and service businesses organize their offers,
+              train their team, book clients, and build better systems powered by ALMA.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a href="#coaching" className="rounded-full bg-[#241f1b] px-8 py-4 text-center text-sm text-white">
-                Explore Coaching
+              <a href="/dashboard" className="rounded-full bg-[#1F1C1A] px-8 py-4 text-center text-sm text-[#F4F0EA]">
+                View Dashboard
               </a>
-              <a href="#systems" className="rounded-full bg-white px-8 py-4 text-center text-sm shadow-sm">
-                Build My System
+              <a href="#beta" className="rounded-full bg-white/75 px-8 py-4 text-center text-sm shadow-sm">
+                Join Beta
               </a>
             </div>
           </div>
 
-          <div className="rounded-[2rem] bg-white p-5 shadow-xl shadow-black/5">
-            <div className="rounded-[1.5rem] bg-[#241f1b] p-6 text-white">
-              <p className="text-xs uppercase tracking-[0.25em] text-[#d6b078]">
-                Powered By ALMA
+          <div className="glass-card rounded-[2rem] p-5">
+            <div className="rounded-[1.5rem] bg-[#1F1C1A] p-6 text-[#F4F0EA]">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#C8A46B]">
+                Purity OS Beta
               </p>
-              <h3 className="mt-2 font-serif text-3xl">Custom Business OS</h3>
+              <h3 className="mt-2 font-serif text-3xl">Business Operating System</h3>
               <p className="mt-3 text-sm leading-6 text-white/55">
-                Booking, payments, intake forms, reminders, client portals, on-site visits,
-                and automation in one flow.
+                Courses, PDFs, quizzes, booking pages, client portals, events, templates,
+                and ALMA tools in one place.
               </p>
 
               <div className="mt-8 space-y-3">
-                {["Client books", "Deposit collected", "Intake completed", "Portal unlocked"].map((item) => (
+                {["Business Academy", "Assistant University", "Booking Platform", "Events + Workshops"].map((item) => (
                   <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-5">
                     {item}
                   </div>
                 ))}
               </div>
 
-              <a href="/bookings" className="mt-8 block rounded-full bg-white px-6 py-4 text-center text-sm text-[#241f1b]">
-                Try Sandbox Demo
+              <a href="/dashboard" className="mt-8 block rounded-full bg-[#F4F0EA] px-6 py-4 text-center text-sm text-[#1F1C1A]">
+                Open Dashboard
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="coaching" className="bg-white px-6 py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-              Business Coaching
-            </p>
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              Coaching for founders, operators, and service businesses.
-            </h2>
+      <section id="getf" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#1F1C1A] p-8 text-[#F4F0EA] md:p-12">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#C8A46B]">
+            Signature Framework
+          </p>
+          <h2 className="font-serif text-4xl leading-tight md:text-6xl">
+            Get TO The F
+          </h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/60">
+            A practical coaching framework for faith, focus, financial clarity, fulfillment,
+            and freedom — built for business owners who want structure without losing purpose.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-5">
+            {["Faith", "Focus", "Financial Clarity", "Fulfillment", "Freedom"].map((item) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                {item}
+              </div>
+            ))}
           </div>
 
-          <div className="space-y-5 text-lg leading-8 text-black/60">
-            <p>
-              Purity Of Heart helps business owners clarify their offer, improve their
-              client experience, build systems, and create a stronger path to revenue.
-            </p>
-            <p>
-              Clients can access lessons, PDFs, replays, business resources, on-site visit
-              options, and future tools like the ALMA image generator.
-            </p>
+          <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#C8A46B]">
+                  Daily Biblical F
+                </p>
+                <h3 className="mt-2 font-serif text-3xl">{todayWord.word}</h3>
+                <p className="mt-2 max-w-2xl text-sm text-white/65">{todayWord.meaning}</p>
+              </div>
+
+              <button
+                onClick={generateWord}
+                className="rounded-full bg-[#F4F0EA] px-6 py-3 text-sm text-[#1F1C1A]"
+              >
+                Generate New F
+              </button>
+            </div>
+
+            <div className="mt-5 grid gap-3 md:grid-cols-4">
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#C8A46B]">Verse</p>
+                <p className="mt-2 text-sm">{todayWord.verse}</p>
+              </div>
+
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#C8A46B]">Apply</p>
+                <p className="mt-2 text-sm text-white/70">{todayWord.apply}</p>
+              </div>
+
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#C8A46B]">Prayer</p>
+                <p className="mt-2 text-sm text-white/70">{todayWord.prayer}</p>
+              </div>
+
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#C8A46B]">Declare</p>
+                <p className="mt-2 text-sm text-white/70">{todayWord.declaration}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="academy" className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-3xl">
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-              Purity Academy
-            </p>
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              Learn, build, and improve your business.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-black/60">
-              The Academy includes business coaching videos, PDFs, booking system templates,
-              live calls, on-site visits available, and an ALMA image generator coming soon.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-4">
-            {["Business Lessons", "PDF Vault", "On-Site Visits", "Image Generator Coming Soon"].map((item) => (
-              <div key={item} className="rounded-[2rem] bg-white p-8 shadow-sm">
-                <h3 className="font-serif text-3xl">{item}</h3>
-                <p className="mt-4 text-sm leading-6 text-black/55">
-                  Built to give business owners a cleaner, smarter way to grow.
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
+          {[
+            ["Business Coaching Academy", "Benchmarks, systems, client experience, payroll, social, and scaling."],
+            ["Assistant University", "Foundation, education, coaching, mentoring, assistant guides, and growth tools."]
+          ].map(([title, text]) => (
+            <div key={title} className="glass-card rounded-[2rem] p-8">
+              <h3 className="font-serif text-4xl">{title}</h3>
+              <p className="mt-4 leading-7 text-[#7C6853]">{text}</p>
+              <a href="/courses" className="mt-6 inline-block rounded-full bg-[#1F1C1A] px-6 py-3 text-sm text-[#F4F0EA]">
+                View Courses
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section id="systems" className="bg-white px-6 py-24">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-              Custom Systems Powered By ALMA
-            </p>
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              Booking systems customized to each business.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-black/60">
-              ALMA helps customize the booking flow, deposit, intake questions,
-              reminders, documents, restaurant reservations, and client portal depending
-              on the business type.
-            </p>
-
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              {Object.keys(industries).map((item) => (
-                <button
-                  key={item}
-                  onClick={() => setActive(item)}
-                  className={`rounded-2xl px-5 py-4 text-left text-sm shadow-sm ${
-                    active === item ? "bg-[#241f1b] text-white" : "bg-[#fbf8f3]"
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] bg-[#241f1b] p-6 text-white">
-            <p className="text-xs uppercase tracking-[0.25em] text-[#d6b078]">
-              ALMA Preview
-            </p>
-            <h3 className="mt-2 font-serif text-3xl">{active} System</h3>
-
-            <div className="mt-8 space-y-3">
-              {industries[active as keyof typeof industries].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            <a href="/bookings" className="mt-8 block rounded-full bg-white px-6 py-4 text-center text-sm text-[#241f1b]">
-              Open Interactive Sandbox
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="portal-preview" className="px-6 py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-              Client Portal Preview
-            </p>
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              Courses, resources, calls, and progress in one dashboard.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-black/60">
-              Members can log in, continue lessons, download PDFs, view upcoming calls,
-              access resources, and see the full portal mockup from any device.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="/dashboard" className="rounded-full bg-[#241f1b] px-8 py-4 text-center text-sm text-white">
-                View Dashboard
-              </a>
-              <a href="/courses" className="rounded-full bg-white px-8 py-4 text-center text-sm shadow-sm">
-                See Courses
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] bg-[#241f1b] p-4 text-white shadow-xl">
-            <div className="rounded-[1.5rem] bg-white p-5 text-[#241f1b]">
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-[#c9a46d]">
-                    Portal Mockup
-                  </p>
-                  <h3 className="mt-2 font-serif text-3xl">Business Academy</h3>
-                </div>
-                <span className="rounded-full bg-[#f6ebe4] px-3 py-2 text-xs">
-                  45%
-                </span>
-              </div>
-
-              <div className="grid gap-3">
-                {[
-                  ["Courses", "Business lessons and coaching videos"],
-                  ["Resources", "PDFs, templates, and workbooks"],
-                  ["Calls", "Upcoming coaching and on-site visits"],
-                  ["Image Generator", "Coming soon"]
-                ].map(([title, text]) => (
-                  <div key={title} className="rounded-2xl bg-[#fbf8f3] p-4">
-                    <p className="font-medium">{title}</p>
-                    <p className="mt-1 text-sm text-black/50">{text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <a href="/dashboard" className="mt-5 block rounded-full bg-[#241f1b] px-6 py-4 text-center text-sm text-white">
-                Open Portal
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      <section id="booking" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#1F1C1A] p-8 text-[#F4F0EA] md:p-12">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9a46d]">
-                Purity Shop
+              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#C8A46B]">
+                Live Booking Platform
               </p>
-              <h2 className="max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-                Curated products for founders, creators, and growth-minded operators.
+              <h2 className="font-serif text-4xl leading-tight md:text-6xl">
+                See a real booking page before we build yours.
               </h2>
+              <p className="mt-6 text-lg leading-8 text-white/60">
+                Preview how a service business can present offers, collect inquiries,
+                book clients, and create a premium client experience.
+              </p>
+
+              <a
+                href="https://puirtyofheartsdemo.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block rounded-full bg-[#F4F0EA] px-8 py-4 text-sm text-[#1F1C1A]"
+              >
+                Launch Live Booking Demo
+              </a>
             </div>
 
-            <div className="w-full rounded-full bg-[#fbf8f3] px-5 py-4 text-left text-sm text-black/40 shadow-sm md:w-80">
-              Search products...
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {products.map(([name, price, img]) => (
-              <div key={name} className="rounded-[2rem] bg-[#fbf8f3] p-4 shadow-sm">
-                <img src={img} alt={name} className="h-72 w-full rounded-[1.5rem] object-cover" />
-                <div className="p-4">
-                  <div className="flex items-end justify-between">
-                    <h3 className="font-serif text-3xl">{name}</h3>
-                    <p className="font-serif text-2xl">{price}</p>
-                  </div>
-                  <a href="/shop" className="mt-5 block rounded-full bg-[#241f1b] px-6 py-4 text-center text-sm text-white">
-                    View Product
-                  </a>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+              {["Beauty", "Restaurant", "Accounting", "Coaching", "Wellness"].map((item) => (
+                <div key={item} className="mb-3 rounded-2xl bg-white/10 p-4 text-sm text-white/75">
+                  {item} booking experience
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <a href="/shop" className="inline-block rounded-full bg-white px-8 py-4 text-sm shadow-sm">
-              Open Full Shop
-            </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-white px-6 py-12 text-center text-sm text-black/50">
-        Purity Of Heart. Business Coaching. Academy. Custom Systems Powered By ALMA.
+      <section id="beta" className="px-6 py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#B29571]">
+            Early Beta Access
+          </p>
+          <h2 className="font-serif text-4xl leading-tight md:text-6xl">
+            Join the first Purity OS beta users.
+          </h2>
+
+          <div className="mt-10 grid gap-4 rounded-[2rem] bg-white/70 p-5 shadow-sm md:grid-cols-[1fr_auto]">
+            <input
+              placeholder="Enter your email"
+              className="rounded-full border border-black/10 bg-white px-6 py-4 outline-none"
+            />
+            <button className="rounded-full bg-[#1F1C1A] px-8 py-4 text-sm text-[#F4F0EA]">
+              Request Beta Access
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="px-6 py-12 text-center text-sm text-[#7C6853]">
+        Purity OS. Business Coaching. Assistant University. Booking Platforms. Events.
       </footer>
     </main>
   );
 }
+
 
