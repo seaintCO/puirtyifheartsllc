@@ -1,0 +1,15 @@
+﻿export const siteLinks = {
+  home: "/",
+  shop: "/shop",
+  courses: "/courses",
+  workshops: "/workshops",
+  mentoring: "/booking",
+  bookingDemo: "https://puirtyofheartsdemo.vercel.app/",
+  resources: "/resources",
+  about: "/about",
+  login: "/login",
+  getToTheF: "/get-to-the-f",
+  contact: "/contact",
+  privacy: "/privacy",
+  terms: "/terms",
+};

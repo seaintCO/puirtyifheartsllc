@@ -1,15 +1,14 @@
-﻿@import "tailwindcss";
+﻿@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
 :root {
-  --purity-bg: #F4F0EA;
-  --purity-card: rgba(255, 255, 255, 0.58);
-  --purity-stone: #C7BEB6;
-  --purity-gray: #9C9491;
-  --purity-slate: #877F7C;
-  --purity-bronze: #B29571;
-  --purity-dark-bronze: #7C6853;
-  --purity-black: #1F1C1A;
-  --purity-gold: #C8A46B;
+  --bg-ivory: #FCFBF9;
+  --bg-stone: #F3F1ED;
+  --gold: #C8B49C;
+  --gold-dark: #B5A189;
+  --text-dark: #1C1B1A;
+  --text-muted: #827E76;
+  --border-light: #EBE8E2;
 }
 
 html {
@@ -17,69 +16,11 @@ html {
 }
 
 body {
-  overflow-x: hidden;
-  background: var(--purity-bg);
-  color: var(--purity-black);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--bg-ivory);
+  color: var(--text-dark);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.marble-bg {
-  background:
-    radial-gradient(circle at 20% 10%, rgba(200, 164, 107, 0.22), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(156, 148, 145, 0.22), transparent 30%),
-    linear-gradient(135deg, #F4F0EA 0%, #E7DED4 45%, #C7BEB6 100%);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.58);
-  backdrop-filter: blur(22px);
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  box-shadow: 0 30px 70px rgba(31, 28, 26, 0.08);
-}
-
-.dark-card {
-  background: #1F1C1A;
-  color: #F4F0EA;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.75rem !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.03em;
-  }
-
-  h2 {
-    font-size: 2.15rem !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.02em;
-  }
-
-  h3 {
-    font-size: 1.45rem !important;
-    line-height: 1.15 !important;
-  }
-
-  p {
-    font-size: 0.96rem;
-    line-height: 1.65;
-  }
-
-  section {
-    padding-top: 3.25rem !important;
-    padding-bottom: 3.25rem !important;
-  }
-
-  a,
-  button {
-    min-height: 44px;
-  }
+.font-serif {
+  font-family: "Playfair Display", serif;
 }

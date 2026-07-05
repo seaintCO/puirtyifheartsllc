@@ -1,11 +1,12 @@
 ﻿"use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { jsPDF } from "jspdf";
 
-export default function Worksheet() {
+function WorksheetResourceContent() {
   const params = useSearchParams();
 
   const title = params.get("title") || "Purity OS Worksheet";
@@ -188,4 +189,10 @@ export default function Worksheet() {
     </main>
   );
 }
-
+export default function WorksheetResourcePage() {
+  return (
+    <Suspense fallback={<main className="min-h-screen p-8">Loading...</main>}>
+      <WorksheetResourceContent />
+    </Suspense>
+  );
+}
